@@ -14,24 +14,24 @@ import org.springframework.stereotype.Repository;
  * @author USUARIO
  */
 @Repository
-public class RepositorioBike {
+public class RepositorioCabin {
     
     @Autowired
-    private InterfaceBike crud;
+    private InterfaceCabin crud;
 
-    public List<Bike> getAll(){
-        return (List<Bike>) crud.findAll();
+    public List<Cabin> getAll(){
+        return (List<Cabin>) crud.findAll();
     }
 
-    public Optional<Bike> getBike(int id){
+    public Optional<Cabin> getCabin(int id){
         return crud.findById(id);
     }
 
-    public Bike save(Bike bike){
-        return crud.save(bike);
+    public Cabin save(Cabin cabin){
+        return crud.save(cabin);
     }
-    public void delete(Bike bike){
-        crud.delete(bike);
+    public void delete(Cabin cabin){
+        crud.delete(cabin);
     }
     
 }

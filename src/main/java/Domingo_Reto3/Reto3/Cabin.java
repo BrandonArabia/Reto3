@@ -18,28 +18,28 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "bike")
-public class Bike implements Serializable{
+@Table(name = "cabin")
+public class Cabin implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String name;
     private String brand;
-    private Integer year;
-    private String description;
+    private Integer rooms;
+    private Integer categori_id;
+    private String name;
     
     @ManyToOne
     @JoinColumn(name = "categoryId")
-    @JsonIgnoreProperties("bikes")
+    @JsonIgnoreProperties("cabin")
     private Categoria category;
 
-     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "bike")
-    @JsonIgnoreProperties({"bike", "client"})
+     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "cabin")
+    @JsonIgnoreProperties({"cabin", "client"})
     private List<Mensaje> messages;
 
-    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "bike")
-    @JsonIgnoreProperties({"bike", "client"})
+    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "cabin")
+    @JsonIgnoreProperties({"cabin", "client"})
     private List<Reservaciones> reservations;
 
     public Integer getId() {
@@ -50,14 +50,6 @@ public class Bike implements Serializable{
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getBrand() {
         return brand;
     }
@@ -66,20 +58,28 @@ public class Bike implements Serializable{
         this.brand = brand;
     }
 
-    public Integer getYear() {
-        return year;
+    public Integer getRooms() {
+        return rooms;
     }
 
-    public void setYear(Integer year) {
-        this.year = year;
+    public void setRooms(Integer rooms) {
+        this.rooms = rooms;
     }
 
-    public String getDescription() {
-        return description;
+    public Integer getCategori_id() {
+        return categori_id;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setCategori_id(Integer categori_id) {
+        this.categori_id = categori_id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Categoria getCategory() {
@@ -105,7 +105,9 @@ public class Bike implements Serializable{
     public void setReservations(List<Reservaciones> reservations) {
         this.reservations = reservations;
     }
-    
+
+   
+   
     
     
     
